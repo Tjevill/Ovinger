@@ -11,50 +11,50 @@ DROP TABLE konsulent;
 -- Oppretter tabeller med entitetsintegritet (primærnøkkel)
 
 CREATE TABLE forlag(
- forlag_id INTEGER NOT NULL AUTO_INCREMENT,
- forlag_navn VARCHAR(30),
- adresse VARCHAR(30),
- telefon CHAR(15),
-CONSTRAINT forlag_pk PRIMARY KEY(forlag_id));
+  forlag_id INTEGER NOT NULL AUTO_INCREMENT,
+  forlag_navn VARCHAR(30),
+  adresse VARCHAR(30),
+  telefon CHAR(15),
+  CONSTRAINT forlag_pk PRIMARY KEY(forlag_id));
 
 CREATE TABLE bok(
- bok_id INTEGER NOT NULL AUTO_INCREMENT,
- tittel VARCHAR(30),
- utgitt_aar INTEGER,
- forlag_id INTEGER,
-CONSTRAINT bok_pk PRIMARY KEY(bok_id));
+  bok_id INTEGER NOT NULL AUTO_INCREMENT,
+  tittel VARCHAR(30),
+  utgitt_aar INTEGER,
+  forlag_id INTEGER,
+  CONSTRAINT bok_pk PRIMARY KEY(bok_id));
 
 CREATE TABLE forfatter(
- forfatter_id INTEGER NOT NULL AUTO_INCREMENT,
- fornavn VARCHAR(20),
- etternavn VARCHAR (30),
- fode_aar INTEGER,
- dod_aar INTEGER,
- nasjonalitet VARCHAR(20),
-CONSTRAINT forfatter_pk PRIMARY KEY(forfatter_id));
+  forfatter_id INTEGER NOT NULL AUTO_INCREMENT,
+  fornavn VARCHAR(20),
+  etternavn VARCHAR (30),
+  fode_aar INTEGER,
+  dod_aar INTEGER,
+  nasjonalitet VARCHAR(20),
+  CONSTRAINT forfatter_pk PRIMARY KEY(forfatter_id));
 
 CREATE TABLE bok_forfatter(
- bok_id INTEGER NOT NULL,
- forfatter_id INTEGER NOT NULL,
-CONSTRAINT bok_forfatter_pk PRIMARY KEY(bok_id, forfatter_id));
+  bok_id INTEGER NOT NULL,
+  forfatter_id INTEGER NOT NULL,
+  CONSTRAINT bok_forfatter_pk PRIMARY KEY(bok_id, forfatter_id));
 
 CREATE TABLE konsulent(
   kons_id INTEGER NOT NULL AUTO_INCREMENT,
   fornavn VARCHAR(20),
   etternavn VARCHAR (30),
   epost VARCHAR(30),
-CONSTRAINT konsulent_pk PRIMARY KEY(kons_id));
+  CONSTRAINT konsulent_pk PRIMARY KEY(kons_id));
 
 -- Legger på referanseintegritet (fremmednøkler)
 
 ALTER TABLE bok
- ADD CONSTRAINT bok_fk FOREIGN KEY(forlag_id)REFERENCES forlag(forlag_id);
+  ADD CONSTRAINT bok_fk FOREIGN KEY(forlag_id)REFERENCES forlag(forlag_id);
 
 ALTER TABLE bok_forfatter
- ADD CONSTRAINT bok_forfatter_fk1 FOREIGN KEY(bok_id)REFERENCES bok(bok_id);
+  ADD CONSTRAINT bok_forfatter_fk1 FOREIGN KEY(bok_id)REFERENCES bok(bok_id);
 
 ALTER TABLE bok_forfatter
- ADD CONSTRAINT bok_forfatter_fk2 FOREIGN KEY(forfatter_id)REFERENCES forfatter(forfatter_id);
+  ADD CONSTRAINT bok_forfatter_fk2 FOREIGN KEY(forfatter_id)REFERENCES forfatter(forfatter_id);
 
 -- Legger inn data i tabellene
 
@@ -135,6 +135,11 @@ INSERT INTO bok_forfatter VALUES(25, 12);
 INSERT INTO konsulent VALUES(DEFAULT, 'Anne', 'Hansen', 'anne.hansen@xxx.com');
 INSERT INTO konsulent VALUES(DEFAULT, 'Bjørn', 'Jensen', 'bjornj@yyy.com');
 INSERT INTO konsulent VALUES(DEFAULT, 'Anne', 'Ås', 'anne.as@zzz.com');
+
+
+-- a)
+-- Lag en SQL-spørring som utfører operasjonene seleksjon og projeksjon på tabellen Bok.
+SELECT * FROM bok WHERE bok_id>=10;
 
 
 

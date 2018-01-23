@@ -1,0 +1,17 @@
+
+
+RELASJONER
+
+forlag (forlag_id, forlag_navn, adresse, telefon)
+
+bok (bok_id, tittel, utgitt_aar, forlag_id)
+
+forfatter (forfatter_id, fornavn, etternavn, fode_aar, dod_aar, nasjonalitet)
+
+bok_forfatter (bok_id, forfatter_id)
+
+konsulent (kons_id, fornavn, etternavn, epost)
+
+
+
+
