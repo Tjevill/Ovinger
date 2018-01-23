@@ -229,3 +229,4 @@ INSERT INTO konsulent VALUES(DEFAULT, 'Anne', 'Ås', 'anne.as@zzz.com');
 -- SELECT bok.tittel, bok.utgitt_aar, forlag.forlag_navn, forlag.adresse, forlag.telefon
 -- FROM forlag
 -- LEFT JOIN bok ON bok.forlag_id = forlag.forlag_id;
+
