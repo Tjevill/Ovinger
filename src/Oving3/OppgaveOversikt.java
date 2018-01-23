@@ -41,6 +41,9 @@ public class OppgaveOversikt {
     }
 
     public boolean okAntOppg(String studentNavn, int okning){
+        if(okning<1){
+            throw new IllegalArgumentException("Tallet kan ikke være negativt!");
+        }
         for (int i = 0; i < antStud; i++) {
             if(studenter[i].getNavn().equals(studentNavn)){
                 studenter[i].okAntOppg(okning);
