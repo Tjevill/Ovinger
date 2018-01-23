@@ -1,0 +1,61 @@
+Relasjonsmodellen, del 2
+Flervalgsoppgaver
+I Blackboard finner du testen Relasjonsmodellen_2. Den må være godkjent i tillegg til oppgavene i dette dokumentet.
+Oppstart
+Tabellene og data som du skal bruke i oppgavene kan du hente fra dette skriptet. Kjør skriptet. Merk at du vil få feilmeldinger første gangen pga DROP-setningene i begynnelsen av scriptet.
+Skriptet består av følgende relasjoner (tabeller) hvor primærnøkler er understreket og fremmednøklene markert med en stjerne.
+KONSULENT(kons_id, fornavn, etternavn, epost)
+BOK(bok_id, tittel, utgitt_aar, forlag_id*)
+FORLAG(forlag_id, forlag_navn, adresse, telefon)
+FORFATTER(forfatter_id, fornavn, etternavn, fode_aar, dod_aar, nasjonalitet)
+BOK_FORFATTER(bok_id*, forfatter_id*)
+Tegn gjerne et diagram som viser sammenhengen mellom de ulike tabellene. Konsulentene er uavhengig av både forlag, forfattere og bøker.
+Hensikten med oppgavene er å bli kjent med de ulike operasjonene i relasjonsalgebraen. Operasjonene utføres ved å kjøre SQL-spørringer. Relasjonsalgebra er tema side 59-76 i læreboka. Boka viser imidlertid ikke tilhørende eksempler på SQL-spørringer. Dette er gjennomgått i ukens forelesning.
+Det er ikke meningen at du skal sette opp spørringene i algebra, du skal kun forholde deg til navnene på de ulike operasjonene. Spørringene skal, som sagt, settes opp i SQL.
+
+Oppgave 1
+
+a)
+Lag en SQL-spørring som utfører operasjonene seleksjon og projeksjon på tabellen Bok.
+
+b)
+Lag en SQL-spørring som utfører operasjonen produkt på tabellene Forlag og Bok.
+Beskriv resultatet med egne ord.
+
+c)
+Lag SQL-spørringer som utfører operasjonene likhetsforening (equijoin) og naturlig forening (natural join) på tabellene Forlag og Bok.
+Hva forteller resultatet?
+
+d)
+Finn eksempler på attributter eller kombinasjoner av attributter som er unionkompatible.
+Hvilke relasjonsoperasjoner krever at operandene er unionkompatible?
+Sett opp SQL-spørringer som utfører disse operasjonene, et eksempel på hver. Beskriv med egne ord hva spørringene gir deg svaret på.
+
+
+
+Oppgave 2
+
+a)
+Bruk SQL til å finne navnene til alle forlagene.
+Hvilken eller hvilke operasjoner fra relasjonsalgebraen brukte du?
+
+b)
+Bruk SQL til å finne eventuelle forlag (forlag_id er nok) som ikke har gitt ut bøker.
+Hvilken eller hvilke operasjoner fra relasjonsalgebraen brukte du?
+
+c)
+Bruk SQL til å finne forfattere som er født i 1948.
+Hvilken eller hvilke operasjoner fra relasjonsalgebraen brukte du?
+
+d)
+Bruk SQL til å finne navn og adresse til forlaget som har gitt ut boka 'Generation X'.
+Hvilken eller hvilke operasjoner fra relasjonsalgebraen brukte du?
+
+e)
+Bruk SQL til å finne titlene på bøkene som Hamsun har skrevet.
+Hvilken eller hvilke operasjoner fra relasjonsalgebraen brukte du?
+
+f)
+Bruk SQL til å finne informasjon om bøker og forlagene som har utgitt dem.
+Én linje i oversikten skal inneholde bokas tittel og utgivelsesår, samt forlagets navn, adresse og telefonnummer. Forlag som ikke har gitt ut noen bøker skal også med i listen. Hvilken eller hvilke operasjoner fra relasjonsalgebraen brukte du?
+Institutt for datateknologi og informatikk (IDI), NTNU
