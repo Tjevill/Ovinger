@@ -139,7 +139,93 @@ INSERT INTO konsulent VALUES(DEFAULT, 'Anne', 'Ås', 'anne.as@zzz.com');
 
 -- a)
 -- Lag en SQL-spørring som utfører operasjonene seleksjon og projeksjon på tabellen Bok.
-SELECT * FROM bok WHERE bok_id>=10;
+-- SELECT * FROM bok WHERE bok_id>=10;
+-- SELECT DISTINCT bok_id, tittel, utgitt_aar
+-- FROM bok WHERE bok_id>=10 && bok.bok_id<=20;
+
+-- b)
+-- Lag en SQL-spørring som utfører operasjonen produkt på tabellene Forlag og Bok.
+-- Beskriv resultatet med egne ord.
+-- SELECT *  FROM forlag, bok;
+
+-- c)
+-- Lag SQL-spørringer som utfører operasjonene likhetsforening (equijoin) og naturlig forening (natural join) på tabellene Forlag og Bok.
+-- Hva forteller resultatet?
+
+-- SELECT * FROM forlag, bok
+-- WHERE forlag.forlag_id = bok.forlag_id;
+-- Resultatet fra koden over forener tabellene forlag og bok hvor forlag_id er lik. Du får to søyler med samme forlag_id.
+-- SELECT * FROM forlag NATURAL JOIN bok;
+-- Resultater fra koden over forener tabellen forlag og bok hvor forlag_id er lik. Med natural join får du kun en søyle med forlag_id.
+
+
+-- d)
+-- Finn eksempler på attributter eller kombinasjoner av attributter som er unionkompatible.
+-- Hvilke relasjonsoperasjoner krever at operandene er unionkompatible?
+-- Sett opp SQL-spørringer som utfører disse operasjonene, et eksempel på hver. Beskriv med egne ord hva spørringene gir deg svaret på.
+
+-- SELECT forlag_navn, forlag_id FROM forlag
+-- UNION
+-- SELECT tittel, forlag_id from bok;
+-- usikker på hva som skjer her.
 
 
 
+-- Oppgave 2
+
+-- a)
+-- Bruk SQL til å finne navnene til alle forlagene.
+-- Hvilken eller hvilke operasjoner fra relasjonsalgebraen brukte du?
+
+-- SELECT forlag_navn
+-- FROM forlag;
+
+-- b)
+-- Bruk SQL til å finne eventuelle forlag (forlag_id er nok) som ikke har gitt ut bøker.
+-- Hvilken eller hvilke operasjoner fra relasjonsalgebraen brukte du?
+
+-- SELECT forlag.forlag_id, forlag.forlag_navn
+-- FROM forlag
+-- LEFT JOIN bok ON bok.forlag_id=forlag.forlag_id
+-- WHERE bok.forlag_id IS NULL ;
+
+-- c)
+-- Bruk SQL til å finne forfattere som er født i 1948.
+-- Hvilken eller hvilke operasjoner fra relasjonsalgebraen brukte du?
+
+-- SELECT forfatter.fode_aar, forfatter.fornavn, forfatter.etternavn
+-- FROM forfatter
+-- WHERE fode_aar=1948;
+
+-- d)
+-- Bruk SQL til å finne navn og adresse til forlaget som har gitt ut boka 'Generation X'.
+-- Hvilken eller hvilke operasjoner fra relasjonsalgebraen brukte du?
+
+-- SELECT forlag.forlag_navn, forlag.adresse
+-- FROM forlag
+-- LEFT JOIN bok ON bok.forlag_id = forlag.forlag_id
+-- WHERE bok.tittel = "Generation X";
+
+-- e)
+-- Bruk SQL til å finne titlene på bøkene som Hamsun har skrevet.
+-- Hvilken eller hvilke operasjoner fra relasjonsalgebraen brukte du?
+
+-- SELECT tittel
+-- FROM bok
+-- WHERE bok_id IN(
+-- SELECT bok_id
+-- FROM bok_forfatter
+-- WHERE forfatter_id
+-- IN (SELECT forfatter_id
+-- FROM forfatter
+-- WHERE forfatter.etternavn = "Hamsun"));
+
+
+-- f)
+-- Bruk SQL til å finne informasjon om bøker og forlagene som har utgitt dem.
+-- Én linje i oversikten skal inneholde bokas tittel og utgivelsesår, samt forlagets navn, adresse og telefonnummer.
+-- Forlag som ikke har gitt ut noen bøker skal også med i listen. Hvilken eller hvilke operasjoner fra relasjonsalgebraen brukte du?
+--
+-- SELECT bok.tittel, bok.utgitt_aar, forlag.forlag_navn, forlag.adresse, forlag.telefon
+-- FROM forlag
+-- LEFT JOIN bok ON bok.forlag_id = forlag.forlag_id;
