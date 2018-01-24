@@ -1,0 +1,22 @@
+
+
+                RELASJONER
+
+
+
+kandidat (fornavn, etternavn, kandidatID{PK}, telefon, epost)
+
+bedrift (organisasjons_nr{PK}, navn, telefon, epost)
+
+vikartjeneste (oppdrag_nr{PK}, bedriftsnavn, kvalifikasjon, startdato, sluttdato)
+
+kvalifikasjon (kvalifikasjon, kandidat_id{PK})
+
+historikk (oppdragsgiver, kandidat_id{PK}, startdato, sluttdato, ant_timer)
+
+kvalik/kandID (kvalifikasjon, kandidat_id)
+
+
+
+
+

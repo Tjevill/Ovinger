@@ -1,0 +1,42 @@
+Oppgave
+
+Vikartjeneste
+
+Vikartjenesten har et arkiv over aktuelle vikarkandidater som er villig til å arbeide.
+
+Om kandidater lagrer vi fornavn, etternavn, telefon og epost-adresse.
+Om bedriftene som etterspør vikarer lagrer vi organsiasjonsnr (entydig), bedriftens navn, telefon og epost-adresse.
+Hver kandidat kan ha mange forskjellige kvalifikasjoner.
+Hver gang en bedrift etterspør en vikar, må Vikartjenesten registrere dette med et oppdragsnummer, bedriftsnavn, hvilken kvalifikasjon som er nødvendige for den eventuelle vikaren, startdato for vikariatet og foreløpig sluttdato.
+Hvert oppdrag krever eksakt én spesifikk kvalifikasjon (som kan være "ingen").
+Når en kandidat har en kvalifikasjon som stemmer overens med den kvalifikasjonen et bestemt oppdrag krever, og byrået tilsetter kandidaten i den aktuelle jobben, så skal dette registreres i databasen. Etter at oppdraget er utført, skal virkelig start- og sluttdato samt antall timer arbeidet registreres. Disse opplysningene skal framkomme i kandidatens jobbhistorikk.
+Kandidaten skal etter endt oppdrag få en sluttattest. Denne attesten er lik for alle med unntak av data om det spesifikke oppdraget.
+
+
+Oppgave a)
+Lag en datamodell (ER-modell der dere bruker UML-notasjon).
+
+
+Oppgave b)
+Oversett til relasjonsmodellen. Strek under primærnøkler og marker fremmednøkler med stjerne.
+
+Er det rimelig at noen av fremmednøklene kan være NULL? Hva betyr det i tilfelle?
+
+Det skal være mulig, ved å definere en ekstra fremmednøkkel, å sikre at kun kandidater med de riktige kvalifikasjonene får et oppdrag. Hvordan?
+
+
+Oppgave c)
+Opprett databasetabellene med primær- og fremmednøkler. Bruk datatypen DATE for dato.
+
+
+Oppgave d) skal du kjøre SELECT-setninger mot databasen. Legg inn data som sikrer at du får prøvd ut disse setningene sånn noenlunde. Det bør være nok med to-tre rader i hver tabell. Du vil trenge å oppgi datoer. Måten du skriver dette på varierer fra databasesystem til databasesystem, men i MySQL kan du skrive, eksempel: DATE('2003-10-18'). Ang oppdrag: Legg inn noen oppdrag som ikke er tildelt vikar, og noen som er avsluttet.
+
+Oppgave d)
+
+Sett opp SELECT-setninger som gjør følgende:
+
+Lag en liste over alle bedriftene. Navn, telefon og epost til bedriften skal skrives ut.
+Lag en liste over alle oppdragene. Om hvert oppdrag skal du skrive ut oppdragets nummer samt navn og telefonnummer til bedriften som tilbyr oppdraget.
+Lag en liste over kandidater og kvalifikasjoner. Kandidatnavn og kvalifikasjonsbeskrivelse skal med i utskriften i tillegg til løpenumrene som identifiserer kandidat og kvalifikasjon.
+Som oppgave 3), men få med de kandidatene som ikke er registrert med kvalifikasjoner.
+Skriv ut jobbhistorikken til en bestemt vikar, gitt kandidatnr. Vikarnavn, sluttdato, oppdragsnr og bedriftsnavn skal med.
