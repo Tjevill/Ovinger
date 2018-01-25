@@ -86,7 +86,7 @@ INSERT INTO kandidat(fornavn, etternavn, telefon, epost) VALUES ("Christian","Da
 INSERT INTO kandidat(fornavn, etternavn, telefon, epost) VALUES ("Martin","Moan",75510221,"martin@moan.no");
 
 -- Kvalifikasjoner
-INSERT INTO kvalifikasjon (kvalifikasjon, kandidat_id) VALUES ("",1);
+INSERT INTO kvalifikasjon (kvalifikasjon, kandidat_id) VALUES ("Ingen",1);
 INSERT INTO kvalifikasjon (kvalifikasjon, kandidat_id) VALUES ("Barnepedagog",2);
 INSERT INTO kvalifikasjon (kvalifikasjon, kandidat_id) VALUES ("Tømrer",2);
 INSERT INTO kvalifikasjon (kvalifikasjon, kandidat_id) VALUES ("Systemutvikler",4);
@@ -104,6 +104,7 @@ SELECT navn,tlf,epost FROM bedrift;
 -- Lag en liste over alle oppdragene.
 -- Om hvert oppdrag skal du skrive ut oppdragets nummer samt navn og telefonnummer til bedriften som tilbyr oppdraget.
 -- Natural join!
+-- kandidat_id i oppdrag skal ikke være der!
 
 
 
