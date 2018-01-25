@@ -1,22 +1,21 @@
 
 
-                RELASJONER
+                                RELASJONER
+---------------------------------------------------------------------------------------------
 
 
+kandidat (fornavn, etternavn, kandidat_id{PK}, telefon, epost)
 
-kandidat (fornavn, etternavn, kandidatID{PK}, telefon, epost)
+bedrift (bedrift_id{PK}, navn, tlf, epost)
 
-bedrift (organisasjons_nr{PK}, navn, telefon, epost)
+oppdrag (oppdrag_id{PK}, bedrift_id*, kandidat_id*, kvalifikasjon, startdato, sluttdato)
 
-vikartjeneste (oppdrag_nr{PK}, bedriftsnavn, kvalifikasjon, startdato, sluttdato)
+kvalifikasjon (kvalifikasjon, kvalifiksasjon_id{PK}, kandidat_id)
 
-kvalifikasjon (kvalifikasjon, kandidat_id{PK})
-
-historikk (oppdragsgiver, kandidat_id{PK}, startdato, sluttdato, ant_timer)
-
-kvalik/kandID (kvalifikasjon, kandidat_id)
+kval_idOGkand_id(kandidat_id{PK}*, kvalifikasjon_id{PK}*)
 
 
+---------------------------------------------------------------------------------------------
 
 
 

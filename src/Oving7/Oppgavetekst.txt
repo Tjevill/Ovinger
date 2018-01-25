@@ -9,7 +9,9 @@ Om bedriftene som etterspør vikarer lagrer vi organsiasjonsnr (entydig), bedrif
 Hver kandidat kan ha mange forskjellige kvalifikasjoner.
 Hver gang en bedrift etterspør en vikar, må Vikartjenesten registrere dette med et oppdragsnummer, bedriftsnavn, hvilken kvalifikasjon som er nødvendige for den eventuelle vikaren, startdato for vikariatet og foreløpig sluttdato.
 Hvert oppdrag krever eksakt én spesifikk kvalifikasjon (som kan være "ingen").
-Når en kandidat har en kvalifikasjon som stemmer overens med den kvalifikasjonen et bestemt oppdrag krever, og byrået tilsetter kandidaten i den aktuelle jobben, så skal dette registreres i databasen. Etter at oppdraget er utført, skal virkelig start- og sluttdato samt antall timer arbeidet registreres. Disse opplysningene skal framkomme i kandidatens jobbhistorikk.
+Når en kandidat har en kvalifikasjon som stemmer overens med den kvalifikasjonen et bestemt oppdrag krever, og byrået tilsetter kandidaten
+i den aktuelle jobben, så skal dette registreres i databasen. Etter at oppdraget er utført, skal virkelig start- og sluttdato samt antall timer
+arbeidet registreres. Disse opplysningene skal framkomme i kandidatens jobbhistorikk.
 Kandidaten skal etter endt oppdrag få en sluttattest. Denne attesten er lik for alle med unntak av data om det spesifikke oppdraget.
 
 
