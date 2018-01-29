@@ -1,0 +1,15 @@
+finnPoeng() skal ta medlemsnummer og passord som argument og returnere antall poeng denne kunden har spart opp.
+Returner en negativ verdi hvis medlem med dette nr ikke fins, eller passord er ugyldig.
+
+registrerPoeng() skal ta medlemsnummer og antall poeng som argument og sørge for at riktig antall poeng blir registrert for dette medlemmet.
+Returner false dersom medlem med dette nr ikke fins.
+
+Metoden nyMedlem skal opprette et objekt av klassen BasicMedlem og legge dette inn i arkivet.
+(Alle medlemmer begynner som basic-medlemmer.) Metoden skal returnere medlemsnummeret.
+
+sjekkMedlemmer() skal gå gjennom alle medlemmene og foreta oppgradering av medlemmer som er kvalifisert for det.
+Basic-medlemmer kan kvalifisere seg for sølv eller gull, mens sølvmedlemmer kan kvalifisere seg for gull.
+Tips: Du trenger å finne ut hvilken klasse et objekt tilhører. Bruk operatoren instanceof.
+Det er ikke mulig å omforme klassetilhørigheten til et objekt.
+Du må i stedet lage et nytt objekt med data fra det gamle.
+Det nye objektet må legges inn i ArrayListen på den plassen der det gamle lå (bruk metoden set()).

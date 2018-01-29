@@ -8,11 +8,11 @@ kandidat (fornavn, etternavn, kandidat_id{PK}, telefon, epost)
 
 bedrift (bedrift_id{PK}, navn, tlf, epost)
 
-oppdrag (oppdrag_id{PK}, bedrift_id*, kandidat_id*, kvalifikasjon, startdato, sluttdato)
+oppdrag (oppdrag_id{PK}, bedrift_id, kandidat_id*, kvalifikasjon, startdato, sluttdato)
 
 kvalifikasjon (kvalifikasjon, kvalifiksasjon_id{PK}, kandidat_id)
 
-kval_idOGkand_id(kandidat_id{PK}*, kvalifikasjon_id{PK}*)
+kval_idOGkand_id(kandidat_id{PK}, kvalifikasjon_id{PK})
 
 
 ---------------------------------------------------------------------------------------------
