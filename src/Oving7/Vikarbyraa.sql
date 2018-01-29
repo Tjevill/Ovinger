@@ -28,7 +28,6 @@ CREATE TABLE bedrift(
 CREATE TABLE oppdrag(
   oppdrag_id INTEGER NOT NULL AUTO_INCREMENT,
   bedrift_id INTEGER,
-  kandidat_id INTEGER ,
   kvalifikasjon VARCHAR(30),
   startdato DATE,
   sluttdato DATE,
@@ -66,8 +65,7 @@ ALTER TABLE historikk
 
 -- Foreign key oppdrag
 ALTER TABLE oppdrag
-  ADD CONSTRAINT oppdrag_fk FOREIGN KEY (bedrift_id) REFERENCES bedrift(bedrift_id),
-  ADD CONSTRAINT oppdrag_fk2 FOREIGN KEY (kandidat_id)REFERENCES kandidat(kandidat_id);
+  ADD CONSTRAINT oppdrag_fk FOREIGN KEY (bedrift_id) REFERENCES bedrift(bedrift_id);
 
 -- Foreign key kval_idOGkand_id
 ALTER TABLE kval_idOGkand_id
@@ -94,17 +92,49 @@ INSERT INTO kvalifikasjon (kvalifikasjon, kandidat_id) VALUES ("Maler",3);
 INSERT INTO kvalifikasjon (kvalifikasjon, kandidat_id) VALUES ("IT-ekspert",3);
 
 -- Oppdrag
-INSERT INTO oppdrag (bedrift_id, kandidat_id, kvalifikasjon, startdato, sluttdato)
-  VALUES (1,1,"Systemutvikler");
--- Overflødig med kandidat_id?
+-- DATE ('YYYY-MM-DD')
+INSERT INTO oppdrag (bedrift_id, kvalifikasjon, startdato, sluttdato) VALUES (1,1,DATE ('2018-01-27'),DATE ('2018-02-09'));
+INSERT INTO oppdrag (bedrift_id, kvalifikasjon, startdato, sluttdato) VALUES (2,3,DATE ('2018-01-29'),DATE ('2018-02-12'));
+INSERT INTO oppdrag (bedrift_id, kvalifikasjon, startdato, sluttdato) VALUES (3,4,DATE ('2018-01-26'),DATE ('2018-02-15'));
+INSERT INTO oppdrag (bedrift_id, kvalifikasjon, startdato, sluttdato) VALUES (3,6,DATE ('2018-02-02'),DATE ('2018-03-06'));
+
+-- Historikk
+INSERT INTO historikk (kandidat_id, oppdrags_id, startdato, sluttdato, ant_timer) VALUES (1,4,DATE('2017-11-1'),DATE('2018-01-02'),128 );
+INSERT INTO historikk (kandidat_id, oppdrags_id, startdato, sluttdato, ant_timer) VALUES (2,3,DATE('2017-09-1'),DATE('2018-01-01'),128 );
+INSERT INTO historikk (kandidat_id, oppdrags_id, startdato, sluttdato, ant_timer) VALUES (3,2,DATE('2017-05-18'),DATE('2018-01-01'),128 );
+INSERT INTO historikk (kandidat_id, oppdrags_id, startdato, sluttdato, ant_timer) VALUES (2,1,DATE('2017-05-18'),DATE('2018-01-01'),128 );
+
+
+
+
 
 -- Lag en liste over alle bedriftene. Navn, telefon og epost til bedriften skal skrives ut.
-SELECT navn,tlf,epost FROM bedrift;
+SELECT navn,tlf,epost
+FROM bedrift;
 
 -- Lag en liste over alle oppdragene.
 -- Om hvert oppdrag skal du skrive ut oppdragets nummer samt navn og telefonnummer til bedriften som tilbyr oppdraget.
--- Natural join!
--- kandidat_id i oppdrag skal ikke være der!
+SELECT oppdrag_id,oppdrag.bedrift_id, bedrift.navn, tlf,epost
+FROM oppdrag, bedrift
+WHERE oppdrag.bedrift_id = bedrift.bedrift_id;
+
+-- Lag en liste over kandidater og kvalifikasjoner.
+-- Kandidatnavn og kvalifikasjonsbeskrivelse skal med i utskriften
+-- i tillegg til løpenumrene som identifiserer kandidat og kvalifikasjon.
+SELECT fornavn,etternavn,kandidat.kandidat_id, kvalifikasjon.kvalifikasjon
+FROM kandidat, kvalifikasjon
+WHERE kandidat.kandidat_id = kvalifikasjon.kandidat_id;
+
+-- Skriv ut jobbhistorikken til en bestemt vikar, gitt kandidatnr.
+-- Vikarnavn, sluttdato, oppdragsnr og bedriftsnavn skal med.
+SELECT kandidat.fornavn,kandidat.etternavn, historikk.sluttdato, bedrift.navn FROM kandidat
+  LEFT JOIN historikk
+  INNER JOIN bedrift
+    ON bedrift.bedrift_id = oppdrags_id
+    ON historikk.kandidat_id = kandidat.kandidat_id
+WHERE kandidat.kandidat_id = 2;
+
+
 
 
 
