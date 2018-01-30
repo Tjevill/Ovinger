@@ -3,7 +3,7 @@ package Oving8;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class BonusMedlem {
+public abstract class BonusMedlem {
 
     private final int medlNr;
     private final Personalia pers;
@@ -38,7 +38,7 @@ public class BonusMedlem {
     }
 
     public String toString(){
-        return "Medlemsnr: "+getMedlNr()+"\nPersonalia: "+getPers()+"\nInnmeldingsdato: "+getInnmeldtDato()+"\nPoeng: "+getPoeng();
+        return "Medlemsnr: "+getMedlNr()+"\nPersonalia: "+getPers().getFornavn()+" "+getPers().getEtternavn()+"\nInnmeldingsdato: "+getInnmeldtDato()+"\nPoeng: "+getPoeng();
     }
 
     public int finnKvalPoeng(LocalDate dato){

@@ -21,14 +21,22 @@ public class Medlemsarkiv {
 
     private int finnLedigNr(){
         Random tilfTall = new Random();
-        int en = tilfTall.nextInt();
+        int en = tilfTall.nextInt(10000);
+
         for (int i = 0; i < bonusMedlem.size(); i++) {
+            en = tilfTall.nextInt(10000);
+            for (int j = 0; j < bonusMedlem.size(); j++) {
+                if(bonusMedlem.get(j).getMedlNr()==en) {
+                    en = tilfTall.nextInt(10000);
+                    j = 0;
+                }
+            }
             if(bonusMedlem.get(i).getMedlNr()!=en){
                 return en;
             }
-            en = tilfTall.nextInt();
+            en = tilfTall.nextInt(10000);
         }
-        return -1;
+        return en;
     }
 
     public int finnPoeng(int medlemsnummer, String passord){
@@ -55,30 +63,50 @@ public class Medlemsarkiv {
         LocalDate today =  LocalDate.now();
 
         for (int i = 0; i < bonusMedlem.size(); i++) {
+
+            int mdlnr = bonusMedlem.get(i).getMedlNr();
+            Personalia pers = bonusMedlem.get(i).getPers();
+            LocalDate innm = bonusMedlem.get(i).getInnmeldtDato();
+            int poeng = bonusMedlem.get(i).getPoeng();
+
             if(bonusMedlem.get(i) instanceof BasicMedlem){
 
-                if(bonusMedlem.get(i).finnKvalPoeng(today)>=25000){
-                    //oppgradering til Sølvmedlem
-                    int mdlnr = bonusMedlem.get(i).getMedlNr();
-                    Personalia pers = bonusMedlem.get(i).getPers();
-                    LocalDate innm = bonusMedlem.get(i).getInnmeldtDato();
-                    int poeng = bonusMedlem.get(i).getPoeng();
+                if(bonusMedlem.get(i).finnKvalPoeng(today)>=25000 && bonusMedlem.get(i).finnKvalPoeng(today)<75000){
+                    //Oppgraderer basic til sølv
                     SoelvMedlem nySoelv = new SoelvMedlem(mdlnr,pers,innm,poeng);
                     bonusMedlem.set(i,nySoelv);
+                }
+                else if(bonusMedlem.get(i).finnKvalPoeng(today)>=75000){
+                    //Oppgraderer basic til gull.
+                    GullMedlem gullMedlem = new GullMedlem(mdlnr,pers,innm,poeng);
+                    bonusMedlem.set(i,gullMedlem);
                 }
             }
             else if(bonusMedlem.get(i) instanceof SoelvMedlem){
 
                 if (bonusMedlem.get(i).finnKvalPoeng(today)>=75000) {
                     //oppgradering til Gullmedlem
-                    int mdlnr = bonusMedlem.get(i).getMedlNr();
-                    Personalia pers = bonusMedlem.get(i).getPers();
-                    LocalDate innm = bonusMedlem.get(i).getInnmeldtDato();
-                    int poeng = bonusMedlem.get(i).getPoeng();
                     GullMedlem gullmedlem = new GullMedlem(mdlnr, pers, innm, poeng);
                     bonusMedlem.set(i, gullmedlem);
                 }
             }
         }
+    }
+
+    public String toString(){
+        String txt = "";
+
+        for (int i = 0; i < bonusMedlem.size(); i++) {
+            if(bonusMedlem.get(i) instanceof BasicMedlem){
+                txt+= "Basicmedlem: \n"+bonusMedlem.get(i).toString()+"\n\n";;
+            }
+            else if(bonusMedlem.get(i) instanceof SoelvMedlem){
+                txt+= "Sølvmedlem: \n"+bonusMedlem.get(i).toString()+"\n\n";;
+            }
+            else{
+                txt+= "Gullmedlem: \n"+bonusMedlem.get(i).toString()+"\n\n";;
+            }
+        }
+        return txt;
     }
 }
