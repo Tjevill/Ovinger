@@ -16,8 +16,6 @@ public class Testclient {
         Personalia chr = new Personalia("Christian","Dalseth","Cdalseth@gmail.com","1234");
         Personalia ben = new Personalia("Big Ben","Johnson","bigben@huge.no","1234");
 
-
-        //BasicMedlem b1 = new BasicMedlem(100, ole, LocalDate.of(2006, 2, 15));
         //nyMedlem-metode i Medlemsarkiv.
         test.nyMedlem(ole,LocalDate.of(2006, 2, 15));
         test.nyMedlem(tove,LocalDate.of(2006, 2, 15));
