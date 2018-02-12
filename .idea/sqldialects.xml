@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/Oving11/oving11.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Oving15/oving15.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/Oving6/bokting.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/Oving7/Vikarbyraa.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/mySQLworkshop/EMfotball.sql" dialect="MySQL" />

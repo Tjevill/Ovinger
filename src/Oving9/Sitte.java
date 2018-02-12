@@ -1,7 +1,7 @@
 package Oving9;
 
 
-//todo FUNGERER.
+
 public class Sitte extends Tribune {
 
     private int [] antOpptatt; //Tabellstørrelse = antall rader;

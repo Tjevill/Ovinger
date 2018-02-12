@@ -47,8 +47,10 @@ public class mainTest {
             System.out.println(tribuner[i].toString());
         }
         System.out.println();
-        System.out.println("SORTERING AV TABBELLEN ETTER INNTEKT");
+        System.out.println("SORTERING AV TABELLEN ETTER INNTEKT");
+
         Arrays.sort(tribuner, (a,b)->b.finnInntekt()-a.finnInntekt());
+
         for (Tribune a :
                 tribuner) {
             System.out.println(a);

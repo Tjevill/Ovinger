@@ -23,7 +23,7 @@ public class Testclient {
 
         //System.out.println(sitteTribune.toString());
 
-        //System.out.println(sitteTribune.printRadOppsett());
+        System.out.println(sitteTribune.printRadOppsett());
 
         Vip vip = new Vip("VIP1",100,240,10);
 

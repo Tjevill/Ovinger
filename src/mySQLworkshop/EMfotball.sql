@@ -1,6 +1,6 @@
-DROP TABLE goal;
-DROP TABLE game;
-DROP TABLE eteam;
+-- DROP TABLE goal;
+-- DROP TABLE game;
+-- DROP TABLE eteam;
 
 
 CREATE TABLE eteam(
@@ -174,6 +174,22 @@ FROM (game  INNER JOIN eteam et1 ON (team1=et1.id))INNER JOIN eteam et2 ON (team
 INNER JOIN goal ON (game.id = matchid)
 GROUP BY mdate, et1.teamname, et2.teamname
 ORDER BY mdate DESC;
+
+-- Svar på følgende oppgave ved å opprette ett eller flere VIEW:
+-- Finn resultatene for hver kamp inkl. de kampene som endte 0-0 (hvor antall mål er 0):
+
+DROP VIEW IF EXISTS team_maal;
+CREATE VIEW team_maal AS
+SELECT teamid, count(*)AS ant_maal
+   FROM goal;
+
+-- Skriv ut de lagene som har skåret flest (totalt) antall mål.
+-- PS! Kan være flere enn ett lag.
+SELECT teamid, count(*)AS ant_maal
+FROM goal
+GROUP BY teamid
+ORDER BY ant_maal DESC ;
+
 
 
 

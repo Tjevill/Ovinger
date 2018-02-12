@@ -1,0 +1,42 @@
+
+
+
+
+Sett opp select-setninger som besvarer spørsmålene nedenfor. Kun én setning pr oppgave.
+
+1. Finn alle borettslag etablert i årene 1975-1985.
+
+2.  Skriv ut en liste over andelseiere. Listen skal ha linjer som ser slik ut (tekster i kursiv er data fra databasen):
+    "fornavn etternavn, ansiennitet: ansiennitet år".
+    Listen skal være sortert på ansiennitet, de med lengst ansiennitet øverst.
+
+3.  I hvilket år ble det eldste borettslaget etablert?
+
+4.  Finn adressene til alle bygninger som inneholder leiligheter med minst tre rom.
+
+
+5.  Finn antall bygninger i borettslaget "Tertitten".
+
+
+6.  Lag en liste som viser antall bygninger i hvert enkelt borettslag.
+    Listen skal være sortert på borettslagsnavn.
+    Husk at det kan finnes borettslag uten bygninger - de skal også med.
+
+
+7.  Finn antall leiligheter i borettslaget "Tertitten".
+
+8.  Hvor høyt kan du bo i borettslaget "Tertitten"?
+
+9.  Finn navn og nummer til andelseiere som ikke har leilighet.
+
+10. Finn antall andelseiere pr borettslag, sortert etter antallet.
+    Husk at det kan finnes borettslag uten andelseiere - de skal også med.
+
+11. Skriv ut en liste over alle andelseiere. For de som har leilighet, skal leilighetsnummeret skrives ut.
+
+
+12. Hvilke borettslag har leiligheter med eksakt 4 rom?
+
+
+13. Skriv ut en liste over antall andelseiere pr postnr og poststed, begrenset til de som bor i leiligheter tilknyttet et borettslag.
+    Husk at postnummeret til disse er postnummeret til bygningen de bor i, og ikke postnummeret til borettslaget. Du trenger ikke ta med poststeder med 0 andelseiere.
