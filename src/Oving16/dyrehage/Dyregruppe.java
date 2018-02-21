@@ -1,0 +1,35 @@
+package Oving16.dyrehage;
+
+public class Dyregruppe extends Dyr {
+
+    private final String gruppenavn;
+    private int antIndivider;
+
+    public Dyregruppe(String norskNavn, String latNavn, String latFamilie, int ankommetDato, String adresse,
+                      String gruppenavn, int antIndivider){
+
+        super(norskNavn, latNavn, latFamilie, ankommetDato, adresse);
+        this.gruppenavn = gruppenavn;
+        this.antIndivider = antIndivider;
+    }
+
+    public String getGruppenavn() {
+        return gruppenavn;
+    }
+
+    public int getAntIndivider() {
+        return antIndivider;
+    }
+    @Override
+    public String getNorskNavn(){
+        return "Gruppe av: "+super.getNorskNavn();
+    }
+
+    public void setAntIndivider(int antIndivider) {
+        this.antIndivider = antIndivider;
+    }
+
+    public String toString(){
+        return super.toString()+"\nGruppenavn: "+getGruppenavn()+"\nAntall individer: "+getAntIndivider();
+    }
+}

@@ -8,7 +8,7 @@ public class Vip extends Tribune{
     private int optPlasser;
     private int radStorrelse;
     private int[] antOpptattPrRad;
-    //todo Ikke noe arv, men bruk Billett.java -> SitteplassBillett.
+
     public Vip(String tribunenavn, int kapasitet, int pris, int rader) {
         super(tribunenavn, kapasitet, pris);
         boolean sjekk = false;
